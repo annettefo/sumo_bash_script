@@ -1,0 +1,23 @@
+// Metadata fields in Sumo
+
+_collector: Name of Collector
+_source: Name of Source defined during config
+_sourceHost: Hostname where the source exists
+_sourceName: Name of log file (including path)
+_sourceCategory: Category designation associated with message
+
+Example:
+
+_sourceCategory=Apache* and!(".gov")
+|parse"*--[" as src_ip
+|where!(src_ip matches "46.*")
+|count by src_ip
+|sort by _count desc
+|limit 10
+
+(i.e \d{2,10})
+metadata tag + "string"
+Filter - metadata, keywords
+Normalize parse as, parse regex, extract
+Filter - where, isBlank
+Aggregate - count by, sort by, sum, etc
