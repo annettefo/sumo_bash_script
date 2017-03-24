@@ -11,7 +11,9 @@ COLLECTORS=$(curl -u $ACCESS_ID:$ACCESS_KEY -X GET $URL/collectors | grep "id" |
 
 echo ${COLLECTORS[*]}
 
-for i in {1..5}
-do
-  curl -u $ACCESS_ID:$ACCESS_KEY -X GET $URL/$i/sources
-done
+echo ${COLLECTORS[2]}
+
+#for i in {1..5}
+#do
+#  curl -u $ACCESS_ID:$ACCESS_KEY -X GET $URL/{COLLECTORS[1]}/sources
+#done
